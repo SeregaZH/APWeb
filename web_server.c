@@ -289,7 +289,8 @@ static bool check_origin(const char *origin)
 
     if (strcmp(uri, "http://192.168.99.1") == 0 
         || strcmp(uri, "http://127.0.0.1") == 0
-        || strcmp(uri, "http://ztractor.abusel.com") == 0) {
+        || strcmp(uri, "http://ztractor.abusel.com") == 0
+        || strcmp(uri, "http://localhost") {
         return true;
     }
 
