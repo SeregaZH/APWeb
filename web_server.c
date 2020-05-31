@@ -273,8 +273,23 @@ static void connection_process(struct connection_state *c)
  */
 static bool check_origin(const char *origin)
 {
-    if (strcmp(origin, "http://192.168.99.1") == 0) {
+    web_debug(3, "Origin: '%s'\n", origin);
+    char* protocol = strtok((char*)origin, ":");
+    char* host = strtok(NULL, ":"); 
+    web_debug(3, "Host: '%s'\n", host);
+    
+    char uri[256];
+    snprintf(uri, sizeof uri, "%s:%s", protocol, host);     
+    web_debug(3, "URI: '%s'\n", uri);
+
+    if (strcmp(uri, "http://192.168.99.1") == 0) {
         // always accept
+        return true;
+    }    
+
+    if (strcmp(uri, "http://192.168.99.1") == 0 
+        || strcmp(uri, "http://127.0.0.1") == 0
+        || strcmp(uri, "http://ztractor.abusel.com") == 0) {
         return true;
     }
 

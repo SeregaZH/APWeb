@@ -11,9 +11,7 @@ var mga_data_url = "http://gps.tridgell.net/data/mga-offline.ubx";
 try {
     var hosta = window.location.hostname.split('.')
     if ((hosta[0] == 192 && hosta[1] == 168) || hosta[0] == 172 || hosta[0] == 10 || hosta[0] == 127 ||
-        window.location.hostname == "tridgell.net") {
+        window.location.hostname == "tridgell.net" || window.location.hostname == "ztractor.abusel.com") {
         drone_url = '';
     }
-} catch(e) {
-}
-
+} catch (e) {}
